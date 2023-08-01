@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Cinzel Decorative", cursive;
+  color: #222;
+  background-color: #eabfb9;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  max-width: 96%;
+  margin: 0 auto;
+  border: 2px solid #222;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid #222;
+  outline-offset: 8px;
+  gap: 18px;
+}
+.heading {
+  font-size: 4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+}
+
+.country {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 32px;
+}
+
+.weather {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+.weather li:last-child {
+  grid-column: -3 / -2;
+}
+
+.weather li {
+  background-color: #ffffff46;
+  padding: 12px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.weather li span {
+  font-size: 2.4rem;
+}
+.loading {
+  font-size: 2rem;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+@media only screen and (min-width: 576px) {
+  .heading {
+    font-size: 5.6rem;
+  }
+  input {
+    padding: 14px;
+  }
+  .country {
+    font-size: 3rem;
+  }
+  .weather {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .weather li {
+    padding: 20px;
+    font-size: 1.6rem;
+  }
+
+  .weather li span {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .weather {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .weather li:last-child {
+    grid-column: 7/-1;
+  }
+}
