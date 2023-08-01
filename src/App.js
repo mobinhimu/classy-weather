@@ -79,6 +79,10 @@ function App() {
     });
   }, [userInput]);
 
+  useEffect(() => {
+    document.title = "Classy Weather - MOBIN";
+  }, []);
+
   return (
     <>
       <main>
