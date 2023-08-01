@@ -6,6 +6,7 @@ import UserInput from "./components/UserInput";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
 import Country from "./components/Country";
+import Error from "./components/Error";
 
 function App() {
   const [userInput, setUserInput] = useState(() => {
@@ -32,6 +33,7 @@ function App() {
         );
 
         const data = await res.json();
+
         if (!data.results) throw new Error("Location Not Found");
 
         const { latitude, longitude, timezone, name, country_code } =
@@ -48,9 +50,9 @@ function App() {
         setValue(weather);
         setLoading(false);
         setError("");
-      } catch (error) {
-        if (error.message === "AbortError") return;
-        setError(error.message);
+      } catch (err) {
+        if (err.message === "AbortError") return;
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -89,7 +91,8 @@ function App() {
           />
           {loading && <Loading />}
           {!loading && <Country country={country} />}
-          {value.daily && <Weather value={value} />}
+          {value.daily && !error && <Weather value={value} />}
+          {!loading && error && <Error error={error} />}
         </div>
         <Footer />
       </main>
