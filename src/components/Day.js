@@ -7,7 +7,7 @@ export default function Day({ max, min, time, weathercode, today }) {
       <span>{getWeatherIcon(weathercode)}</span>
       <p>{today === time ? "Today" : formatDate(time)}</p>
       <p>
-        {min}&deg; &ndash; <strong>{max}&deg;s</strong>{" "}
+        {min}&deg; &ndash; <strong>{max}&deg;</strong>{" "}
       </p>
     </li>
   );
